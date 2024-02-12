@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>LSH Contact</title>
+    <!-- base:css -->
+    <link rel="stylesheet" href="/vendors/typicons/typicons.css">
+    <link rel="stylesheet" href="/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <link rel="stylesheet" href="/vendors/select2/select2.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-css/1.4.2/select2-bootstrap.min.css">
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/css/vertical-layout-light/style.css">
+    <!-- endinject -->
+    <link rel="shortcut icon" href="/img/favicon.png" />
+    <!--sweetalert-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+	<link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
+	<!--삭제여부 확인 스크립트-->
+	<script src="/js/DeleteContactCheck.js"></script>
+<style>
+    .main-panel{
+        padding-top: 100px;
+        margin:0 auto;
+        width: 80%;
+    }
+    .project-orders-table th {
+    	font-family: sans-serif;
+    	font-size: 16px;
+	}
+    .project-orders-table td {
+    	font-family: sans-serif;
+    	font-size: 16px;
+	}
+</style>
+</head>
+<body>
+    <!-- 상단메뉴 시작 -->
+    <div class="container-scroller">
+        <!-- partial:../../partials/_navbar.html -->
+        <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+            <div class="navbar-brand-wrapper d-flex justify-content-center">
+                <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">
+                    <a class="navbar-brand brand-logo" href="/index">
+                        <img src="/img/lsh-logo-white.png" alt="logo" />
+                    </a>
+                    <a class="navbar-brand brand-logo-mini" href="/index">
+                        <img src="/img/pencil-logo-white.png" alt="logo" />
+                    </a>
+                </div>
+            </div>
+            <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+                <ul class="navbar-nav mr-lg-2">
+                    <li class="nav-item nav-profile">
+                        <span class="nav-profile-name" th:text="${username} + '(' + ${userid} + ')님 환영합니다.'"></span>
+                    </li>
+                </ul>
+                <ul class="navbar-nav navbar-nav-right">
+                	<button type="button" class="btn btn-info m-3" onclick="location.href='/insert'">새 연락처 추가</button>
+                    <button type="button" class="btn btn-primary m-3" onclick="location.href='/logout'">로그아웃</button>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <!-- 상단메뉴 끝 -->
+    <!-- 회원목록 시작 -->
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="table-responsive pt-3">
+                            <table name="contact" class="table table-striped project-orders-table">
+                                <thead>
+                                    <tr name="listhead">
+                                        <th class="ml-5">이름</th>
+                                        <th>전화번호</th>
+                                        <th>주소</th>
+                                        <th>그룹</th>
+                                        <th>수정 및 삭제</th>
+                                        <!--디자인을 위해 맨 마지막 colnum에 숨겨서 배치-->
+                                        <th hidden>순번</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                <th:block th:each="list : ${contactList}">
+                                    <tr>
+                                        <td name="name" th:text="${list.name}"></td>
+                                        <td name="phone" th:text="${list.phone}"></td>
+                                        <td name="address" th:text="${list.address}"></td>
+                                        <td name="gubunname" th:text="${list.gubunname}"></td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <button type="button" class="btn btn-success btn-sm btn-icon-text mr-3" 
+                                                	th:onclick="location.href='/edit/[[${list.personid}]]'">
+                                                    수정
+                                                    <i class="typcn typcn-edit btn-icon-append"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-danger btn-sm btn-icon-text" 
+                                                	th:onclick="ConfirmDelete([[${list.personid}]])">
+                                                    삭제
+                                                    <i class="typcn typcn-delete-outline btn-icon-append"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                        <td name="personid" th:text="${list.personid}" hidden></td>
+                                    </tr>
+                                </th:block>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 회원목록 끝 -->
+  <!-- base:js -->
+  <script src="/vendors/js/vendor.bundle.base.js"></script>
+  <!-- endinject -->
+  <!-- inject:js -->
+  <script src="/js/off-canvas.js"></script>
+  <script src="/js/hoverable-collapse.js"></script>
+  <script src="/js/template.js"></script>
+  <!-- endinject -->
+</body>
+
+</html>
