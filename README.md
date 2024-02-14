@@ -1,4 +1,4 @@
-![image](https://github.com/lhs0225/big17_3rd/assets/8206626/1b1b5c38-569d-40c8-b0b3-bd3571f13e96)# big17_3rd
+# big17_3rd
 빅데이터17기 3차 과제
 
 # 🎏 목표
