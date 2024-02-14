@@ -37,6 +37,9 @@ MVC패턴을 이용하여 데이터베이스 연동 연락처 관리 홈페이�
 ## 연락처 추가
 ![추가화면](https://github.com/lhs0225/big17_3rd/blob/main/%EC%8B%A4%ED%96%89%ED%99%94%EB%A9%B4/%EC%97%B0%EB%9D%BD%EC%B2%98%EC%B6%94%EA%B0%80%ED%99%94%EB%A9%B4.png?raw=true)
 
+## 연락처 수정
+![수정화면](https://github.com/lhs0225/big17_3rd/blob/main/%EC%8B%A4%ED%96%89%ED%99%94%EB%A9%B4/%EC%88%98%EC%A0%95%ED%99%94%EB%A9%B4.png?raw=true)
+
 ## 연락처 삭제 확인
 ![삭제확인화면](https://github.com/lhs0225/big17_3rd/blob/main/%EC%8B%A4%ED%96%89%ED%99%94%EB%A9%B4/%EC%82%AD%EC%A0%9C%ED%99%95%EC%9D%B8%ED%99%94%EB%A9%B4.png?raw=true)
 
